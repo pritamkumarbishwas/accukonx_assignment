@@ -33,6 +33,9 @@ To set up this project locally, follow these steps:
 
    ```bash
    git clone https://github.com/pritamkumarbishwas/accukonx_assignment.git
+  ```bash
   cd accukonx_assignment
-  npm install
+```bash
+npm install
+```bash
   npm start
