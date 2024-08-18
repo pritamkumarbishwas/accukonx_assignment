@@ -1,0 +1,182 @@
+{
+  "categories": [
+    {
+      "title": "CSPM Executive Dashboard",
+      "type": "CSPM",
+      "widgets": [
+        {
+          "id": "widget-1",
+          "type": "CSPM",
+          "title": "Cloud Accounts",
+          "data": [
+            {
+              "name": "Connected",
+              "value": 2,
+              "color": "#4A90E2"
+            },
+            {
+              "name": "Not Connected",
+              "value": 2,
+              "color": "#D0D9E6"
+            }
+          ]
+        },
+        {
+          "id": "widget-2",
+          "type": "CSPM",
+          "title": "Cloud Account Risk Assessment",
+          "data": [
+            {
+              "name": "Failed",
+              "value": 1689,
+              "color": "#FF5A5F"
+            },
+            {
+              "name": "Warning",
+              "value": 681,
+              "color": "#FFCC00"
+            },
+            {
+              "name": "Not Available",
+              "value": 36,
+              "color": "#6D6E71"
+            },
+            {
+              "name": "Passed",
+              "value": 7253,
+              "color": "#00A699"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "CWPP Dashboard",
+      "widgets": [
+        {
+          "id": "widget-3",
+          "type": "CWPP",
+          "title": "Top 5 Namespace Specific Alerts",
+          "data": [
+            {
+              "name": "Alert 1",
+              "value": 10
+            },
+            {
+              "name": "Alert 2",
+              "value": 20
+            },
+            {
+              "name": "Alert 3",
+              "value": 30
+            },
+            {
+              "name": "Alert 4",
+              "value": 40
+            },
+            {
+              "name": "Alert 5",
+              "value": 50
+            }
+          ]
+        },
+        {
+          "id": "widget-4",
+          "type": "CWPP",
+          "title": "Workload Alert",
+          "data": [
+            {
+              "name": "Workload 1",
+              "value": 15
+            },
+            {
+              "name": "Workload 2",
+              "value": 25
+            },
+            {
+              "name": "Workload 3",
+              "value": 35
+            },
+            {
+              "name": "Workload 4",
+              "value": 45
+            },
+            {
+              "name": "Workload 5",
+              "value": 55
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Registry Scan",
+      "widgets": [
+        {
+          "id": "widget-5",
+          "type": "RegistryScan",
+          "title": "Image Risk Assignment",
+          "data": [
+            {
+              "name": "Step 1",
+              "value": 20,
+              "color": "#FF5A5F"
+            },
+            {
+              "name": "Step 2",
+              "value": 40,
+              "color": "#FFCC00"
+            },
+            {
+              "name": "Step 3",
+              "value": 60,
+              "color": "#6D6E71"
+            },
+            {
+              "name": "Step 4",
+              "value": 80,
+              "color": "#00A699"
+            },
+            {
+              "name": "Step 5",
+              "value": 100,
+              "color": "#4A90E2"
+            }
+          ]
+        },
+        {
+          "id": "widget-6",
+          "type": "RegistryScan",
+          "title": "Image Secqurity Issue",
+          "data": [
+            {
+              "name": "Step 1",
+              "value": 20,
+              "color": "#FF5A5F"
+            },
+            {
+              "name": "Step 2",
+              "value": 40,
+              "color": "#FFCC00"
+            },
+            {
+              "name": "Step 3",
+              "value": 60,
+              "color": "#6D6E71"
+            },
+            {
+              "name": "Step 4",
+              "value": 80,
+              "color": "#00A699"
+            },
+            {
+              "name": "Step 5",
+              "value": 100,
+              "color": "#4A90E2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
