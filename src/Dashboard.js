@@ -16,14 +16,12 @@ const Dashboard = ({ initialDashboardConfig }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    // Load and merge configuration from local storage on component mount
     const loadConfig = () => {
       const storedConfig = localStorage.getItem('dashboardConfig');
       if (storedConfig) {
         const parsedStoredConfig = JSON.parse(storedConfig);
         setDashboardConfig(prevConfig => mergeConfigs(prevConfig, parsedStoredConfig));
       } else {
-        // If no stored configuration, save the initial one to local storage
         localStorage.setItem('dashboardConfig', JSON.stringify(initialDashboardConfig));
       }
     };
@@ -31,13 +29,11 @@ const Dashboard = ({ initialDashboardConfig }) => {
   }, [initialDashboardConfig]);
 
   const mergeConfigs = (currentConfig, newConfig) => {
-    // Create a map of existing widgets by ID for quick lookup
     const existingWidgetsMap = new Map();
     currentConfig.categories.forEach(category => {
       category.widgets.forEach(widget => existingWidgetsMap.set(widget.id, widget));
     });
 
-    // Merge new widgets, ensuring no duplicates
     const mergedCategories = newConfig.categories.map(category => {
       const existingCategory = currentConfig.categories.find(c => c.title === category.title) || { widgets: [] };
       const mergedWidgets = [
@@ -58,10 +54,10 @@ const Dashboard = ({ initialDashboardConfig }) => {
     if (!widgetName || !selectedCategory) return;
 
     const newWidget = {
-      id: `widget-${Date.now()}`, // Generate a unique ID
+      id: `widget-${Date.now()}`,
       type: selectedCategory === 'Registry Scan' ? 'RegistryScan' : selectedCategory === 'CWPP Dashboard' ? 'CWPP' : 'CSPM',
       title: widgetName,
-      data: [] // Empty data for now
+      data: []
     };
 
     setDashboardConfig(prevConfig => {
@@ -75,17 +71,17 @@ const Dashboard = ({ initialDashboardConfig }) => {
         return cat;
       });
       const newConfig = { ...prevConfig, categories: updatedCategories };
-      localStorage.setItem('dashboardConfig', JSON.stringify(newConfig)); // Save updated config to local storage
+      localStorage.setItem('dashboardConfig', JSON.stringify(newConfig));
       return newConfig;
     });
 
-    setWidgetName(''); // Clear the widget name input
-    handleDrawerToggle(); // Close the drawer after adding the widget
+    setWidgetName('');
+    handleDrawerToggle();
   };
 
   const handleCancel = () => {
-    setWidgetName(''); // Clear the widget name input
-    handleDrawerToggle(); // Close the drawer on cancel
+    setWidgetName('');
+    handleDrawerToggle();
   };
 
   const handleCategoryClick = (categoryTitle) => {
@@ -104,7 +100,7 @@ const Dashboard = ({ initialDashboardConfig }) => {
         return cat;
       });
       const newConfig = { ...prevConfig, categories: updatedCategories };
-      localStorage.setItem('dashboardConfig', JSON.stringify(newConfig)); // Save updated config to local storage
+      localStorage.setItem('dashboardConfig', JSON.stringify(newConfig));
       return newConfig;
     });
   };
@@ -130,7 +126,7 @@ const Dashboard = ({ initialDashboardConfig }) => {
     <>
       <SearchBox onSearch={handleSearch} />
       <Box sx={{ paddingTop: 1, paddingLeft: 5, paddingRight: 5 }}>
-        <Header />
+        <Header onOpenDrawer={handleDrawerToggle} /> {/* Pass function to Header */}
 
         {filteredCategories.map((category, categoryIndex) => (
           <Box key={categoryIndex} sx={{ mb: 2 }}>

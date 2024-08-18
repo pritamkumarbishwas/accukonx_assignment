@@ -5,7 +5,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-const Header = () => {
+const Header = ({ onOpenDrawer }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [dateRange, setDateRange] = React.useState(2); // Default value set to 2
 
@@ -22,7 +22,7 @@ const Header = () => {
     };
 
     return (
-        <div style={{  display: 'flex', justifyContent: 'space-between', alignItems: 'center',  }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography variant="h6">
                 CNAPP Dashboard
             </Typography>
@@ -32,6 +32,7 @@ const Header = () => {
                     variant="outlined"
                     size="small"
                     style={{ marginRight: '10px', background: '#fff', textTransform: 'none' }}
+                    onClick={onOpenDrawer} // Add this line to open the drawer
                 >
                     Add Widget
                     <AddIcon style={{ marginLeft: '8px' }} />
@@ -61,23 +62,21 @@ const Header = () => {
                     <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
                 </Menu>
                 <FormControl
-                    style={{ marginRight: '16px', background: '#fff', fontSize: '14px' }}
                     size="small"
+                    style={{ marginRight: '16px', background: '#fff' }}
                 >
                     <Select
                         value={dateRange}
                         onChange={handleDateChange}
-                        label="Date Range"
-                        style={{ minWidth: '150px', fontSize: '14px' }} 
                         startAdornment={
                             <InputAdornment position="start">
                                 <AccessTimeIcon />
                             </InputAdornment>
                         }
                     >
-                        <MenuItem value={2} style={{ fontSize: '18px' }}>2 Days Ago</MenuItem>
-                        <MenuItem value={3} style={{ fontSize: '18px' }}>3 Days Ago</MenuItem>
-                        <MenuItem value={7} style={{ fontSize: '18px' }}>7 Days Ago</MenuItem>
+                        <MenuItem value={2}>2 Days Ago</MenuItem>
+                        <MenuItem value={3}>3 Days Ago</MenuItem>
+                        <MenuItem value={7}>7 Days Ago</MenuItem>
                     </Select>
                 </FormControl>
             </div>
