@@ -36,9 +36,5 @@ To set up this project locally, follow these steps:
    
   ```bash
   cd accukonx_assignment
-
-```bash
-npm install
-
-```bash
-npm start
+   npm install
+   npm start
